@@ -1,0 +1,31 @@
+#
+# $Id: fonts.txt,v 1.1.1.1 2005/12/29 19:06:35 tkralidi Exp $
+#
+fritqat			fritqat.ttf
+fritqat-bold                    fritqtb0.ttf
+fritqat-italic                  fritqti0.ttf
+fritqat-bold-italic             fritqtb2.ttf
+verdana-bold			verdanab.ttf
+verdana			      	verdana.ttf
+arial				arial.ttf
+arialbd				arialbd.ttf
+Vnarial				Vnarial.ttf
+Vharial				Vharial.ttf
+Vntimei				Vntimei.ttf
+Vntimebi			Vntimebi.ttf
+Vntimeb				Vntimeb.ttf
+Vntime				Vntime.ttf
+Vnariani			Vnariani.ttf
+Vnarianb			Vnarianb.ttf
+Vnarialn			Vnarialn.ttf
+Vnariali			Vnariali.ttf
+Vnarialb			Vnarialb.ttf
+Vhariabi			Vhariabi.ttf
+Vharialb			Vharialb.ttf
+Vhariali			Vhariali.ttf
+Vharialn			Vharialn.ttf
+Vhtime				Vhtime.ttf
+Vhtimeb				Vhtimeb.ttf
+Vhtimebi			Vhtimebi.ttf
+Vhtimei				Vhtimei.ttf
+Vnariabi			Vnariabi.ttf

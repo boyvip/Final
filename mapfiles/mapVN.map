@@ -1,0 +1,113 @@
+MAP
+	NAME 'mapVN'
+  IMAGETYPE      PNG
+  EXTENT        105.67 20.88 106.01 21.06
+  SIZE           2048 2048
+  SYMBOLSET      "symbols/symbols.sym"
+  FONTSET        "fonts/fonts.txt"
+  PROJECTION
+    "init=epsg:4326"
+  END
+  QUERYMAP
+    STATUS ON
+  END
+	
+  WEB
+    IMAGEPATH "D:/WorkSpaceMS4W/ms4w/tmp/ms_tmp"
+    IMAGEURL  "D:/WorkSpaceMS4W/ms4w/tmp/ms_tmp"
+  METADATA
+    "wms_title" "Customer Airports"
+    "map" "mapVN.map"
+    "ows_schemas_location" "http://schemas.opengeospatial.net"
+    "wms_onlineresource" "http://localhost/cgi-bin/mapserv.exe?map=D:/WorkspaceMS4W/ms4w/Apache/htdocs/NewProject/mapfiles/mapVN.map&"
+    "wms_enable_request" "*"
+    "wms_srs" "EPSG:4326"
+    "wms_feature_info_mime_type" "text/plain"
+    "wms_feature_info_mime_type" "text/html"
+    "wms_server_version" "1.1.1"
+    "wms_formatlist" "image/png,image/gif,image/jpeg"
+    "wms_format" "image/png"
+  END
+  END
+	OUTPUTFORMAT
+    NAME "png"
+    DRIVER GD/PNG
+    MIMETYPE "image/png"
+    IMAGEMODE RGBA
+    EXTENSION "png"
+    TRANSPARENT ON
+  END
+  
+LAYER 
+    NAME         'District'
+    DATA         '../shapefiles/District.shp'
+    STATUS       DEFAULT
+    TYPE         POLYGON
+	PROJECTION
+			"init=epsg:4326"
+	END
+	LABELITEM 'Name'
+	
+    CLASS
+      NAME       "NAME"
+      STYLE
+        COLOR        63 191 90
+        OUTLINECOLOR 32 32 32
+      END
+	  LABEL
+			TYPE TRUETYPE
+			FONT arial
+			COLOR  0 0 0 
+			SIZE 10
+			POSITION auto
+			ENCODING UTF-8
+		END
+    END
+  END 
+
+  LAYER
+  NAME "SurveyDatas"
+  DATA         '../shapefiles/SurveyDatas.shp'
+  STATUS DEFAULT
+  TYPE POINT
+  TOLERANCE 5
+  TOLERANCEUNITS PIXELS
+  DUMP True
+  
+  CONNECTIONTYPE postGIS
+  CONNECTION "dbname=FinalProject host=localhost port=5432 user=postgres password=123456"
+  DATA "geom from surveydatas using SRID=-1 using unique gid"
+  TEMPLATE 'template.html'
+  METADATA
+      'ows_title' 'SurveyDatas'
+    END
+	PROJECTION
+		"init=epsg:4326"
+	END
+  
+  #LABELITEM "ID_Survey"
+  CLASS
+	
+      NAME "SurveyData"
+	 STYLE
+        COLOR        166 242 244
+        OUTLINECOLOR 0 0 0
+      END
+	  SYMBOL 'circle'
+      COLOR  166 242 244
+      SIZE 15
+		
+     LABEL
+        COLOR 0 0 0
+        FONT arial
+        TYPE TRUETYPE
+        POSITION CC
+        PARTIALS TRUE
+        SIZE 7
+        BUFFER 1
+        OUTLINECOLOR 0 0 0
+     END							     
+  END
+END  
+  
+END 
